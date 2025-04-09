@@ -9,11 +9,13 @@ public class GestorInventario {
     private List<Proveedor> proveedores;
     private Usuario usuarioActivo;
 
+    // Constructor que inicializa las listas de productos y proveedores
     public GestorInventario() {
         productos = new ArrayList<>();
         proveedores = new ArrayList<>();
     }
 
+    // Método para iniciar sesión con diferentes usuarios predefinidos
     public void iniciarSesion() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el nombre de usuario: ");
@@ -39,6 +41,7 @@ public class GestorInventario {
         }
     }
 
+    // Método para agregar un proveedor nuevo a la lista
     public void agregarProveedor() {
         Scanner scanner = new Scanner(System.in);
 
@@ -53,6 +56,7 @@ public class GestorInventario {
         System.out.println("Proveedor agregado: " + nombreProveedor);
     }
 
+    // Método para agregar un producto, junto con su categoría y proveedor
     public void agregarProducto() {
         Scanner scanner = new Scanner(System.in);
 
@@ -64,7 +68,7 @@ public class GestorInventario {
 
         System.out.print("Ingrese la cantidad en stock: ");
         int cantidad = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); // Limpiar buffer
 
         System.out.print("Ingrese el nombre del proveedor: ");
         String nombreProveedor = scanner.nextLine();
@@ -72,23 +76,26 @@ public class GestorInventario {
         System.out.print("Ingrese el contacto del proveedor: ");
         String contactoProveedor = scanner.nextLine();
 
+        // Crear y agregar proveedor
         Proveedor proveedor = new Proveedor(nombreProveedor, contactoProveedor);
         proveedores.add(proveedor);
 
-        System.out.print("Ingrese el nombre de la categoria: ");
+        // Captura de la categoría del producto
+        System.out.print("Ingrese el nombre de la categoría: ");
         String nombreCategoria = scanner.nextLine();
 
-        System.out.print("Ingrese la descripcion de la categoria: ");
+        System.out.print("Ingrese la descripción de la categoría: ");
         String descripcionCategoria = scanner.nextLine();
 
+        // Crear la categoría y el producto
         Categoria categoria = new Categoria(nombreCategoria, descripcionCategoria);
-
         Producto producto = new Producto(nombreProducto, precio, cantidad, categoria);
         productos.add(producto);
 
         System.out.println("Producto agregado: " + nombreProducto);
     }
 
+    // Método para retirar una cantidad de un producto específico
     public void retirarProducto() {
         Scanner scanner = new Scanner(System.in);
 
@@ -118,6 +125,7 @@ public class GestorInventario {
         }
     }
 
+    // Método para listar todos los productos, con alerta si el stock está bajo
     public void listarProductos() {
         if (productos.isEmpty()) {
             System.out.println("No hay productos registrados.");
@@ -126,6 +134,7 @@ public class GestorInventario {
             for (Producto producto : productos) {
                 producto.mostrarProducto();
 
+                // Alerta si el stock es bajo
                 if (producto.getStock() < 5) {
                     System.out.println("¡ALERTA! Stock bajo.");
                 }
@@ -135,10 +144,11 @@ public class GestorInventario {
         }
     }
 
+    // Método para mostrar solo los productos con stock bajo
     public void mostrarAlertasStockBajo() {
         System.out.println("\n--- Alertas de Stock Bajo ---");
         for (Producto producto : productos) {
-            if (producto.getStock() < 11) {
+            if (producto.getStock() < 5) {
                 producto.mostrarProducto();
                 System.out.println("¡ALERTA! Stock bajo.");
                 System.out.println("------------------------");
@@ -146,6 +156,7 @@ public class GestorInventario {
         }
     }
 
+    // Método para listar todos los proveedores registrados
     public void listarProveedores() {
         if (proveedores.isEmpty()) {
             System.out.println("No hay proveedores registrados.");
@@ -157,6 +168,7 @@ public class GestorInventario {
         }
     }
 
+    // Método para mostrar la información del usuario que inició sesión
     public void mostrarUsuarioActivo() {
         if (usuarioActivo != null) {
             System.out.println("\n--- Usuario Activo ---");

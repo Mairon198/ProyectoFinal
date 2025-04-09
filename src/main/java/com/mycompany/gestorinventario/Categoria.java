@@ -6,11 +6,13 @@ public class Categoria {
     private String nombre;
     private String descripcion;
 
+    // Constructor para inicializar la categoría
     public Categoria(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
+    // Métodos getter y setter para acceder y modificar atributos
     public String getNombre() {
         return nombre;
     }
@@ -27,6 +29,7 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
+    // Método para mostrar los datos de la categoría
     public void mostrarCategoria() {
         System.out.println("Categoría: " + nombre);
         System.out.println("Descripción: " + descripcion);
