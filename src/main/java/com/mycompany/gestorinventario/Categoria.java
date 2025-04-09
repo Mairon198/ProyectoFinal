@@ -2,16 +2,23 @@
 
 package com.mycompany.gestorinventario;
 
-
-public class Categoria extends Articulo {
+public class Categoria {
+    private String nombre;
     private String descripcion;
 
-    public Categoria(String nombre, double precio, int stock, String descripcion) {
-        super(nombre, precio, stock);
+    public Categoria(String nombre, String descripcion) {
+        this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
-    // Métodos getters y setters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -20,10 +27,8 @@ public class Categoria extends Articulo {
         this.descripcion = descripcion;
     }
 
-    // Método para mostrar los detalles de la categoría
     public void mostrarCategoria() {
-        System.out.println("Categoria:");
-        mostrarArticulo(); // Llamamos al método de la clase padre
-        System.out.println("Descripcion: " + descripcion);
+        System.out.println("Categoría: " + nombre);
+        System.out.println("Descripción: " + descripcion);
     }
 }

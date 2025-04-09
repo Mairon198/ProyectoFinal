@@ -1,5 +1,4 @@
 
-
 package com.mycompany.gestorinventario;
 
 public class Articulo {
@@ -13,7 +12,6 @@ public class Articulo {
         this.stock = stock;
     }
 
-    // Métodos getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -38,10 +36,10 @@ public class Articulo {
         this.stock = stock;
     }
 
-    // Método para mostrar los datos comunes
     public void mostrarArticulo() {
         System.out.println("Nombre: " + nombre);
         System.out.println("Precio: L." + precio);
         System.out.println("Stock: " + stock);
     }
+    
 }
