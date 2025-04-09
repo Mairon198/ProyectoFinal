@@ -81,10 +81,10 @@ public class GestorInventario {
         proveedores.add(proveedor);
 
         // Captura de la categoría del producto
-        System.out.print("Ingrese el nombre de la categoría: ");
+        System.out.print("Ingrese el nombre de la categoria: ");
         String nombreCategoria = scanner.nextLine();
 
-        System.out.print("Ingrese la descripción de la categoría: ");
+        System.out.print("Ingrese la descripcion de la categoria: ");
         String descripcionCategoria = scanner.nextLine();
 
         // Crear la categoría y el producto
@@ -148,7 +148,7 @@ public class GestorInventario {
     public void mostrarAlertasStockBajo() {
         System.out.println("\n--- Alertas de Stock Bajo ---");
         for (Producto producto : productos) {
-            if (producto.getStock() < 5) {
+            if (producto.getStock() < 21) {
                 producto.mostrarProducto();
                 System.out.println("¡ALERTA! Stock bajo.");
                 System.out.println("------------------------");

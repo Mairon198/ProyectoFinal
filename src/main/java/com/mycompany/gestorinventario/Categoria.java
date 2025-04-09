@@ -31,7 +31,7 @@ public class Categoria {
 
     // Método para mostrar los datos de la categoría
     public void mostrarCategoria() {
-        System.out.println("Categoría: " + nombre);
-        System.out.println("Descripción: " + descripcion);
+        System.out.println("Categoria: " + nombre);
+        System.out.println("Descripcion: " + descripcion);
     }
 }
